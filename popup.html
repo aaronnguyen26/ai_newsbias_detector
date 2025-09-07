@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Bias Detector</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="icons/icon48.png" alt="AI Bias Detector" class="logo-icon">
+                <h1 class="title">AI Bias Detector</h1>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Initial State -->
+            <div id="initial-state" class="state active">
+                <p class="description">
+                    Analyze articles for potential bias using AI-powered detection.
+                    <br><small style="color: #4a90e2;">✓ Powered by cloud service - no setup required!</small>
+                </p>
+                <button id="scan-button" class="scan-btn">
+                    <span class="btn-icon">🔍</span>
+                    Scan Article
+                </button>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading-state" class="state">
+                <div class="loading-container">
+                    <div class="spinner"></div>
+                    <p class="loading-text">Analyzing article for bias...</p>
+                    <button id="cancel-button" class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Results State -->
+            <div id="results-state" class="state">
+                <div class="results-header">
+                    <h2>Analysis Results</h2>
+                    <button id="new-scan-button" class="new-scan-btn">New Scan</button>
+                </div>
+                
+                <div class="bias-summary">
+                    <!-- Circular Bias Score -->
+                    <div class="circular-score-container">
+                        <div class="circular-score">
+                            <svg class="circular-progress" width="120" height="120">
+                                <circle class="bg-circle" cx="60" cy="60" r="50" stroke="#2a2a3e" stroke-width="8" fill="none"></circle>
+                                <circle id="progress-circle" class="progress-circle" cx="60" cy="60" r="50" stroke="#667eea" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314"></circle>
+                            </svg>
+                            <div class="score-text">
+                                <span id="bias-score-number" class="score-number">0</span>
+                                <span class="score-label-small">Bias Score</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overall-score">
+                        <span class="score-label">Overall Bias Level:</span>
+                        <span id="overall-score" class="score-value">Low</span>
+                    </div>
+                </div>
+
+                <div class="bias-categories">
+                    <h3>Detected Categories</h3>
+                    <div id="categories-list" class="categories">
+                        <!-- Categories will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="explanation">
+                    <h3>Explanation</h3>
+                    <p id="explanation-text" class="explanation-text">
+                        <!-- Explanation will be populated by JavaScript -->
+                    </p>
+                </div>
+
+                <!-- Alternative Articles Section -->
+                <div id="alternative-articles" class="alternative-articles" style="display: none;">
+                    <h3>Alternative Perspectives</h3>
+                    <p class="alt-description">Since bias was detected, here are some alternative articles on this topic:</p>
+                    <div id="alternative-articles-list" class="alt-articles-list">
+                        <!-- Alternative articles will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="confidence">
+                    <span class="confidence-label">Confidence:</span>
+                    <span id="confidence-level" class="confidence-value">High</span>
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="state">
+                <div class="error-container">
+                    <div class="error-icon">⚠️</div>
+                    <h2>Analysis Failed</h2>
+                    <p id="error-message" class="error-message">
+                        Unable to analyze the article. Please try again.
+                    </p>
+                    <button id="retry-button" class="retry-btn">Try Again</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#" id="help-link">Help</a>
+                <a href="#" id="about-link">About</a>
+            </div>
+            <div class="footer-info">
+                <small style="color: #4a90e2;">Powered by AI • Privacy-focused</small>
+            </div>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
+
