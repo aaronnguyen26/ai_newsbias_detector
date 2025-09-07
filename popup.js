@@ -7,8 +7,8 @@ class PopupController {
         this.analysisResult = null;
         
         // Google Custom Search API configuration
-        this.GOOGLE_SEARCH_API_KEY = ''; // Insert API Key
-        this.GOOGLE_SEARCH_ENGINE_ID = ''; // Insert Engine ID 
+        // Insert API Key
+        // Insert Engine ID 
         
         this.initializeElements();
         this.attachEventListeners();
